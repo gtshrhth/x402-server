@@ -1,16 +1,25 @@
 {
-  "name": "x402-server",
+  "name": "x402server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gtshrhth/x402-server.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gtshrhth/x402-server/issues"
+  },
+  "homepage": "https://github.com/gtshrhth/x402-server#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "ethers": "^6.15.0",
     "express": "^5.1.0",
     "serverless-http": "^4.0.0"
   }

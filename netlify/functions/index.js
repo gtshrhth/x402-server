@@ -7,14 +7,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// === 配置代币 ===
+// === 配置代币（测试用）===
 const TOKEN_ADDRESS = "0x1234567890123456789012345678901234567890";
 const CHAIN_ID = 8453;
 const REQUIRED_AMOUNT = ethers.parseUnits("1.0", 18);
 
 const usedNonces = new Set();
 
-// === 402 中间件 ===
+// === 402 支付检查 ===
 app.use('/premium', async (req, res, next) => {
   const auth = req.headers.authorization;
 
@@ -68,6 +68,7 @@ function send402(res, msg = "Payment required") {
   });
 }
 
+// === 路由 ===
 app.get('/premium/secret', (req, res) => {
   res.json({ message: "恭喜！你已用 X402 支付 1 个代币成功！" });
 });
@@ -76,5 +77,5 @@ app.get('/', (req, res) => {
   res.json({ status: "X402 Server OK", test: "Go to /premium/secret" });
 });
 
-// 导出为 Netlify Function
+// === 导出为 Netlify Function ===
 module.exports.handler = serverless(app);
